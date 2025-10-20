@@ -1,0 +1,27 @@
+# === Windows / VS Code ===
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+.vscode/
+
+# === Python: cache i wirtualne środowisko ===
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# === Jupyter ===
+.ipynb_checkpoints/
+
+# === Sekrety ===
+.env
+*.env
+
+# === Dane / artefakty (trzymamy poza repo) ===
+data/
+models/
+
+# Pliki danych gdziekolwiek w projekcie
+*.csv
+*.parquet
