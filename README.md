@@ -12,41 +12,40 @@ A simple, beginner-friendly project to predict user churn (`is_churned`) on a Sp
 - **Expected local paths (adjust in notebooks if needed):**
       data/raw/...
       data/processed/spotify_churn_dataset_clean.parquet
+---
+## License
 
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 ---
 
 ## Data description (columns)
 
-- **user_id** – user identifier (ID).
-- **age** – age (years).
-- **listening_time** – average daily listening time (minutes/day).
-- **songs_played_per_day** – number of songs played per day.
-- **skip_rate** – share of skipped tracks (0–1).
-- **ads_listened_per_week** – number of ads per week.
-- **offline_listening** – offline playback available (True/False).
-- **subscription_type** – plan type (e.g., Free, Premium, Family…).
-- **device_type** – device category (Desktop / Mobile / Web).
-- **country** – country code.
-- **gender** – categorical gender field.
-- **is_churned** – **target**: whether the user churned (0/1).
+- **user_id** - user identifier (ID).
+- **age** - age (years).
+- **listening_time** - average daily listening time (minutes/day).
+- **songs_played_per_day** - number of songs played per day.
+- **skip_rate** - share of skipped tracks (0–1).
+- **ads_listened_per_week** - number of ads per week.
+- **offline_listening** - offline playback available (True/False).
+- **subscription_type** - plan type (e.g., Free, Premium, Family…).
+- **device_type** - device category (Desktop / Mobile / Web).
+- **country** - country code.
+- **gender** - categorical gender field.
+- **is_churned** - **target**: whether the user churned (0/1).
 
 > For modeling we don’t use **`user_id`**.  
 > **`offline_listening`** strongly depends on **`subscription_type`** / ads.
 
 ---
-
-## What’s included (no conclusions here)
-
-### 1) EDA — `notebook/01_eda.ipynb`
+### 1) EDA - `notebook/01_eda.ipynb`
+- Quick sanity & dtypes: preview dataset (shape/head/info), fix types (numeric/boolean/category), handle missing values & duplicates
 - Basic stats (mean/median/std, min–max, quartiles, IQR).
 - Histograms & boxplots; outliers via Tukey’s rule.
-- Distribution shape: skewness & kurtosis.
 - Categorical summaries: counts & percentages (`value_counts`), **churn %** per category.
 - Dependence checks:
 - numeric↔numeric correlations (heatmap),
-- chi-square and **Cramér’s V** for categorical↔categorical and categorical↔target.
 
-### 2) Baseline ML — `notebook/02_ml.ipynb`
+### 2) Baseline ML - `notebook/02_ml.ipynb`
 - Preprocessing pipeline with `ColumnTransformer`:
 - `StandardScaler` for numeric features,
 - `OneHotEncoder(drop='first')` for categorical features.
